@@ -12,8 +12,8 @@ export function HeroSection() {
     >
       <div className="absolute inset-0 z-0">
         <img
-          src="/background.jpg"
-          alt=""
+          src={`${import.meta.env.BASE_URL}background.jpg`} 
+          alt="Descripción"
           className="h-full w-full object-cover opacity-[0.75]"
           fetchPriority="high"
         />

@@ -41,27 +41,14 @@ export function SiteHeader() {
           className="group flex shrink-0 cursor-pointer items-center gap-3 text-left"
         >
           <img
-            src="/snappiffylogo.png"
+            src={`${import.meta.env.BASE_URL}snappiffylogo.png`} 
             alt="Snappiffy"
-            width={120}
-            height={128}
             className={cn(
-              'h- w-auto object-contain md:h-50',
+              'h-35 w-auto object-contain md:h-50', // Corregido: altura definida y responsiva
               'transition-[filter,transform] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]',
               'drop-shadow-sm group-hover:drop-shadow-[0_0_12px_rgba(138,43,226,0.35)] motion-safe:group-hover:scale-[1.02]',
             )}
           />
-          <div>
-            <p
-              className={cn(
-                'text-xl font-bold tracking-tight text-[#081c15] transition-[background,background-clip,color] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]',
-                'group-hover:bg-gradient-to-r group-hover:from-[#14532d] group-hover:to-[#8A2BE2] group-hover:bg-clip-text group-hover:text-transparent',
-              )}
-            >
-              
-            </p>
-            
-          </div>
         </a>
 
         <nav className="hidden items-center gap-6 lg:flex xl:gap-8" aria-label="Main">
