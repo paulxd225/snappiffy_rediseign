@@ -7,8 +7,8 @@ import babel from '@rolldown/plugin-babel'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-// https://vite.dev/config/
 export default defineConfig({
+  base: './', // <--- ESTO ES VITAL: Hace que las rutas sean relativas
   plugins: [
     tailwindcss(),
     react(),
