@@ -10,7 +10,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 // ... tus otros imports
 export default defineConfig({
   // AÑADE ESTA LÍNEA (debe coincidir exactamente con el nombre de tu repo en GitHub)
-  base: '/sanppiffy_rediseign/', 
+  base: '/snappiffy_rediseign/', 
   plugins: [
     tailwindcss(),
     react(),
