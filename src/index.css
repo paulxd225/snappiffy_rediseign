@@ -1,0 +1,133 @@
+@import 'tailwindcss';
+@plugin "tailwindcss-animate";
+
+@source "../index.html";
+@source "./**/*.{ts,tsx}";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Snappiffy + EVA-01 tokens (use as arbitrary values or extend theme below) */
+:root {
+  --snappiffy-forest: #081c15;
+  --snappiffy-green-800: #14532d;
+  --snappiffy-green-500: #22c55e;
+  --snappiffy-cream: #dff1d6;
+  --snappiffy-accent-purple: #8a2be2;
+  --snappiffy-accent-fuchsia: #d946ef;
+
+  --radius: 0.625rem;
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 142 64% 24%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 142 64% 24%;
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-snappiffy-forest: var(--snappiffy-forest);
+  --color-snappiffy-green-800: var(--snappiffy-green-800);
+  --color-snappiffy-green-500: var(--snappiffy-green-500);
+  --color-snappiffy-cream: var(--snappiffy-cream);
+  --color-snappiffy-purple: var(--snappiffy-accent-purple);
+  --color-snappiffy-fuchsia: var(--snappiffy-accent-fuchsia);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Full-bleed landing: remove legacy centered column constraint */
+#root {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  min-height: 100svh;
+  text-align: initial;
+  border: none;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* Infinite horizontal marquee — duplicate content at 50% width for seamless loop */
+@keyframes marquee-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee-scroll {
+  animation: marquee-scroll 48s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-scroll {
+    animation: none;
+  }
+}
+
+.tech-strip-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.tech-strip-scroll::-webkit-scrollbar {
+  display: none;
+}
+
